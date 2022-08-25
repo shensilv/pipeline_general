@@ -1,0 +1,11 @@
+
+VCFtools - v0.1.13
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf test.vcf
+	--out test.plink
+	--plink
+
+After filtering, kept 0 out of 0 Individuals
+Error: Require Genotypes in VCF file in order to output as PLINK.

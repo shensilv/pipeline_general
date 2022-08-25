@@ -1,0 +1,12 @@
+##fileformat=VCFv4.3
+##fileDate=20220823
+##source=NealeLab
+##reference=file:
+##contig=<ID=20,length=62435964,assembly=B36,md5=f126cdf8a6e0c7f379d618ff66beb2da,species="Homo sapiens",taxonomy=x>
+##phasing=partial
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO
+CHROM POS ID REF ALT QUAL FILTER INFO
+1 15791 rs547522712 C T . . .
+1 69487 rs568226429 G A . . .
+1 69569 rs2531267 T C . . .
+1 139853 rs533633326 C T . . .
