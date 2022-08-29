@@ -36,4 +36,24 @@ if sex == "b":
 
 #os.system('''awk '{FS="\t"; if($12 != "NaN"){print $0}}' cleaned.tsv >> newcleaned.tsv''')
 
+# Remove triallelic SNPs  --- maybe worry about this later
+
+os.system('''awk 'BEGIN{FS=":"}{print $1"\t"$2}' newcleaned.tsv | sort | uniq -d | sed 's/[[:space:]]/:/g' | awk 'BEGIN{FS="\t"}{print $0":"}' >> duplicates.tsv''')
+
+    # count nr of sign SNPs
+
+print("number of significant tri-allelic SNPs:")
+
+os.system('''grep -f duplicates.tsv newcleaned.tsv | awk 'BEGIN{FS="\t"}{print $12}' | egrep "e-05|e-06|e-07|e-08|e-09|e-10" ''')
+
+    # remove the triallelic
+
+os.system('''grep -v -f duplicates.tsv newcleaned.tsv > finalcleaned.tsv''')
+
+### put into FUMA file format
+
+os.system('''echo -e "chrom\tpos\teffect_allele\tpval" >> fuma_file_''' + phecode + '''tsv''')
+
+os.system('''awk '{FS="\t|:"} {print $1"\t"$2"\t"$4"\t"$15}' finalcleaned.tsv >> fuma_file_''' + phecode + '''.tsv''')
+
 
